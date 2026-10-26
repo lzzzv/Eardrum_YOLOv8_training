@@ -1,0 +1,16 @@
+__pycache__/
+*.pt
+*.onnx
+*.tflite
+runs/
+
+# 院內影像與中間產物
+*.jpg
+*.jpeg
+*.png
+outputs/
+folds*/
+dataset_*/
+review_*/
+app_testset/
+tflite_output/

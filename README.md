@@ -55,8 +55,3 @@ Python、Ultralytics YOLOv8（yolov8s-cls）、北榮 A100 GPU 伺服器（Jupyt
 - App用的二元模型（binary_s320）訓練設定相同，但用去重後的單一切分訓練。轉成TensorFlow Lite（float16）後，2,389 張判讀結果 100% 一致。
 
 限制： 急性鼓膜炎、耳黴菌症、急性中耳炎的原圖只有 7～15 張，這幾類的結果只能當參考。院內影像都用在訓練或驗證，沒有另外的測試集，模型在新影像上的表現還沒驗證。
-```
-
-- `make_binary.py` 讀的是去重後的單一切分（dataset_dedup_cls），由 split_dedup.py 產生，不在這個專案裡。
-- `convert_tflite.ps1` 要在另一個裝 onnx2tf 與 tensorflow 的 conda 環境執行，避免影響訓練環境的套件版本。
-- `tflite_consistency.py` 與 `make_app_testset.py` 需要另外安裝 tflite_runtime，並先跑過 `oof_binary.py`。這兩支用相對路徑（runs/、outputs/），要在訓練資料夾下執行，並把 best_float16.tflite 放在同一層。
